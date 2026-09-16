@@ -2,6 +2,7 @@
 interface Frontmatter {
   title: string;
   project: string;
+  published?: string;
   updated?: string;
   description?: string;
 }
@@ -13,7 +14,7 @@ interface Props {
   frontmatter: Frontmatter;
 }
 
-const { title, project, updated, description } = Astro.props.frontmatter;
+const { title, project, published, updated, description } = Astro.props.frontmatter;
 ---
 
 <!doctype html>
@@ -34,7 +35,13 @@ const { title, project, updated, description } = Astro.props.frontmatter;
 
       <main class="content">
         <h1>{title}</h1>
-        {updated && <p class="updated">Dernière mise à jour : {updated}</p>}
+        {(published || updated) && (
+          <p class="updated">
+            {published && <>Publié le {published}</>}
+            {published && updated && " · "}
+            {updated && <>Dernière mise à jour : {updated}</>}
+          </p>
+        )}
         <slot name="hero" />
         <div class="prose">
           <slot />

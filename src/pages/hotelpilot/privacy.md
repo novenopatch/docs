@@ -2,6 +2,7 @@
 layout: ../../layouts/Legal.astro
 title: Politique de confidentialité — HotelPilot Suite
 project: HotelPilot Suite
+published: 16 septembre 2026
 updated: 16 septembre 2026
 description: Politique de confidentialité de la plateforme HotelPilot Suite.
 ---

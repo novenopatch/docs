@@ -2,6 +2,7 @@
 layout: ../../layouts/Legal.astro
 title: Politique de confidentialité — Deliv
 project: Deliv
+published: 16 septembre 2026
 updated: 16 septembre 2026
 description: Politique de confidentialité de l'application Deliv.
 ---

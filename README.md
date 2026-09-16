@@ -20,6 +20,7 @@ avec le layout partagé (`src/layouts/Legal.astro`) déjà stylé :
 layout: ../../layouts/Legal.astro
 title: Politique de confidentialité — Nom du projet
 project: Nom du projet
+published: 16 septembre 2026
 updated: 16 septembre 2026
 description: Courte description pour le <meta>.
 ---
@@ -28,6 +29,12 @@ description: Courte description pour le <meta>.
 
 Contenu en Markdown normal...
 ```
+
+`published` (date de première publication) et `updated` (date de dernière
+mise à jour) s'affichent tous les deux sous le titre, sur toutes les pages
+— y compris les pages `.astro` (passés dans `frontmatter={{ ... }}`, voir
+`src/pages/deliv/index.astro`). Ne change `updated` que le jour où le
+contenu change réellement ; `published` ne bouge jamais.
 
 Placé dans `src/pages/nom-du-projet/privacy.md`, ça donne
 `https://novenopatch.github.io/docs/nom-du-projet/privacy/`.

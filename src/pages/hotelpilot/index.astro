@@ -10,6 +10,8 @@ const DEMO_URL = "https://gestionhotelapp.onrender.com/";
   frontmatter={{
     title: "HotelPilot Suite",
     project: "HotelPilot Suite",
+    published: "16 septembre 2026",
+    updated: "16 septembre 2026",
     description:
       "HotelPilot Suite — la plateforme SaaS multi-établissements pour gérer réservations, planning, encaissements, stock et comptabilité hôtelière.",
   }}
@@ -64,11 +66,20 @@ const DEMO_URL = "https://gestionhotelapp.onrender.com/";
   </ul>
 
   <h2>Application mobile compagnon</h2>
-  <p>
-    HotelPilot Suite ne s'arrête pas au bureau de la réception : une application mobile, pour le
-    même personnel et les mêmes données que le PMS web, met les actions les plus utiles sur le
-    terrain à portée de main.
-  </p>
+  <div class="mobile-app-header">
+    <img
+      class="mobile-icon"
+      src={`${base}hotelpilot/mobile-icon.png`}
+      alt=""
+      width="56"
+      height="56"
+    />
+    <p>
+      HotelPilot Suite ne s'arrête pas au bureau de la réception : une application mobile, pour
+      le même personnel et les mêmes données que le PMS web, met les actions les plus utiles sur
+      le terrain à portée de main.
+    </p>
+  </div>
   <ul>
     <li>Messagerie d'équipe en temps réel : "chambre 305 prête", "besoin d'aide en 214"...</li>
     <li>Décisions sur les demandes de réservation en ligne, en un tap.</li>
@@ -122,6 +133,23 @@ const DEMO_URL = "https://gestionhotelapp.onrender.com/";
     gap: 0.75rem;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .mobile-app-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 0 1.1rem;
+  }
+
+  .mobile-app-header p {
+    margin: 0;
+  }
+
+  .mobile-icon {
+    flex-shrink: 0;
+    border-radius: 22%;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.15);
   }
 
   .demo-link {
