@@ -1,0 +1,193 @@
+---
+interface Frontmatter {
+  title: string;
+  project: string;
+  updated?: string;
+  description?: string;
+}
+
+// Une page Markdown avec `layout:` dans son frontmatter reçoit ces champs
+// nichés sous `frontmatter`, pas comme props directes — voir
+// https://docs.astro.build/en/guides/markdown-content/#frontmatter-layout
+interface Props {
+  frontmatter: Frontmatter;
+}
+
+const { title, project, updated, description } = Astro.props.frontmatter;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <span class="project-label">{project}</span>
+      </header>
+
+      <main class="content">
+        <h1>{title}</h1>
+        {updated && <p class="updated">Dernière mise à jour : {updated}</p>}
+        <div class="prose">
+          <slot />
+        </div>
+      </main>
+
+      <footer class="footer">
+        <p>Cette page ne référence aucun autre projet ni aucune autre page de ce site.</p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #ffffff;
+    --fg: #18181b;
+    --fg-muted: #71717a;
+    --border: #e4e4e7;
+    --accent: #2563eb;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b0b0d;
+      --fg: #f4f4f5;
+      --fg-muted: #a1a1aa;
+      --border: #27272a;
+      --accent: #60a5fa;
+      color-scheme: dark;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    padding: 2rem 1.5rem 0;
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .project-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .content {
+    flex: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+    line-height: 1.25;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .updated {
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+    margin: 0 0 2.5rem;
+  }
+
+  .prose {
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  .prose h2 {
+    font-size: 1.25rem;
+    margin: 2.5rem 0 0.9rem;
+    letter-spacing: -0.01em;
+  }
+
+  .prose p {
+    margin: 0 0 1.1rem;
+    color: var(--fg);
+  }
+
+  .prose ul {
+    margin: 0 0 1.1rem;
+    padding-left: 1.3rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.6rem;
+  }
+
+  .prose li::marker {
+    color: var(--fg-muted);
+  }
+
+  .prose strong {
+    font-weight: 600;
+  }
+
+  .prose code {
+    background: var(--border);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    font-size: 0.9em;
+  }
+
+  .prose a {
+    color: var(--accent);
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    text-underline-offset: 2px;
+  }
+
+  .footer {
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 1.5rem 1.5rem 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer p {
+    color: var(--fg-muted);
+    font-size: 0.82rem;
+    margin: 0;
+  }
+</style>

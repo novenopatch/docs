@@ -2,35 +2,49 @@
 
 Dépôt utilitaire pour publier rapidement des pages publiques (politiques de
 confidentialité, mentions légales, CGU...) pour n'importe lequel de mes
-projets, via GitHub Pages. Zéro build à maintenir : pousser un `.md`, GitHub
-Pages (Jekyll intégré) le transforme en page HTML.
+projets, via GitHub Pages. Basé sur [Astro](https://astro.build) pour un
+rendu propre, rapide et moderne — build et déploiement automatiques via
+GitHub Actions à chaque push sur `main`.
 
-Site en ligne : **https://novenopatch.github.io/docs/**
+**Volontairement pas d'index listant tous les projets** : chaque page est
+autonome, sans navigation vers les autres. Un lien direct est nécessaire
+pour l'atteindre.
 
 ## Convention
 
-Un dossier par projet, un fichier Markdown par page. Chaque fichier a un
-en-tête (front matter) avec au minimum un `title` et un `permalink` fixe
-(sinon Jekyll génère une URL basée sur le nom de fichier, moins stable) :
+Un dossier par projet dans `src/pages/`, une page Markdown par page finale,
+avec le layout partagé (`src/layouts/Legal.astro`) déjà stylé :
 
 ```markdown
 ---
+layout: ../../layouts/Legal.astro
 title: Politique de confidentialité — Nom du projet
-permalink: /nom-du-projet/privacy/
+project: Nom du projet
+updated: 16 septembre 2026
+description: Courte description pour le <meta>.
 ---
 
-Contenu de la page en Markdown normal...
+## Un titre de section
+
+Contenu en Markdown normal...
 ```
 
-Résultat en ligne : `https://novenopatch.github.io/docs/nom-du-projet/privacy/`
+Placé dans `src/pages/nom-du-projet/privacy.md`, ça donne
+`https://novenopatch.github.io/docs/nom-du-projet/privacy/`.
 
-## Ajouter une page pour un nouveau projet
+## Développement local
 
-1. Créer (ou réutiliser) le dossier `nom-du-projet/` à la racine.
-2. Ajouter le fichier Markdown avec son front matter (`title` + `permalink`).
-3. Commit + push sur `main` — GitHub Pages rebuild automatiquement
-   (généralement moins de 2 minutes), rien d'autre à faire.
+```bash
+npm install
+npm run dev
+```
 
-## Projets déjà présents
+## Déploiement
 
-- [`deliv/`](deliv/) — politique de confidentialité de l'app Deliv.
+Automatique : push sur `main`, le workflow `.github/workflows/deploy.yml`
+build avec Astro et déploie sur GitHub Pages (source réglée sur "GitHub
+Actions" dans les réglages du dépôt, pas sur une branche).
+
+## Pages en ligne
+
+- [Deliv — politique de confidentialité](https://novenopatch.github.io/docs/deliv/privacy/)

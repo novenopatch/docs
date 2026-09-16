@@ -1,11 +1,10 @@
 ---
+layout: ../../layouts/Legal.astro
 title: Politique de confidentialité — Deliv
-permalink: /deliv/privacy/
+project: Deliv
+updated: 16 septembre 2026
+description: Politique de confidentialité de l'application Deliv.
 ---
-
-# Politique de confidentialité — Deliv
-
-**Dernière mise à jour : 16 septembre 2026**
 
 ## Qui sommes-nous
 
@@ -13,7 +12,7 @@ Deliv est une application mobile éditée par Bluetech TG, destinée aux
 livreurs indépendants pour organiser leurs tournées de livraison. Contact :
 support@nougna.com.
 
-## Ce que Deliv NE fait PAS
+## Ce que Deliv ne fait pas
 
 - Deliv **n'a pas de compte utilisateur** et ne demande ni email ni mot de
   passe.
@@ -31,9 +30,9 @@ Tout ce que tu saisis dans Deliv (noms et téléphones de tes clients et
 marchands, adresses, montants, notes, photos de colis et preuves de
 livraison) est stocké **uniquement sur ton téléphone**, dans une base de
 données locale (SQLite). Ces informations ne quittent ton appareil que si
-**tu** décides explicitement de les partager (ex. : bouton "Partager" qui
-ouvre le sélecteur de partage natif de ton téléphone pour envoyer un
-récapitulatif à un marchand par WhatsApp, par exemple).
+**tu** décides explicitement de les partager (par exemple le bouton
+"Partager", qui ouvre le sélecteur natif du téléphone pour envoyer un
+récapitulatif à un marchand par WhatsApp).
 
 Si tu désinstalles l'application ou utilises la fonction "Réinitialiser"
 dans Réglages, ces données sont supprimées définitivement — Deliv n'en
@@ -44,19 +43,19 @@ garde aucune copie ailleurs, puisqu'il n'y a pas d'ailleurs.
 Deliv communique avec deux services externes, uniquement pour assurer
 certaines fonctionnalités :
 
-- **Calcul d'itinéraire (OSRM, router.project-osrm.org)** : quand tu
+- **Calcul d'itinéraire** (OSRM, `router.project-osrm.org`) : quand tu
   demandes à Deliv de calculer le meilleur ordre de passage pour tes
   colis, les coordonnées géographiques de tes points de livraison
   (latitude/longitude uniquement, aucun nom ni numéro de téléphone) sont
-  envoyées à ce service public de calcul d'itinéraires, via une connexion
-  chiffrée (HTTPS), pour obtenir les distances et durées. Ce service ne
-  reçoit aucune information permettant de t'identifier.
+  envoyées à ce service public, en connexion chiffrée (HTTPS), pour
+  obtenir les distances et durées. Ce service ne reçoit aucune
+  information permettant de t'identifier.
 - **Résolution de liens Google Maps raccourcis** : quand tu colles un
-  lien court (type `maps.app.goo.gl`), Deliv suit ce lien pour en extraire
-  les coordonnées, comme le ferait un navigateur.
-- **Mises à jour de l'application (Expo)** : Deliv vérifie et télécharge
-  ses propres mises à jour via l'infrastructure d'Expo (u.expo.dev), comme
-  n'importe quelle application qui se met à jour.
+  lien court (type `maps.app.goo.gl`), Deliv suit ce lien pour en
+  extraire les coordonnées, comme le ferait un navigateur.
+- **Mises à jour de l'application** (Expo) : Deliv vérifie et télécharge
+  ses propres mises à jour via l'infrastructure d'Expo, comme n'importe
+  quelle application qui se met à jour.
 
 Aucun de ces services ne reçoit tes données personnelles (noms,
 téléphones, photos).
