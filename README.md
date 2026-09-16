@@ -47,4 +47,5 @@ Actions" dans les réglages du dépôt, pas sur une branche).
 
 ## Pages en ligne
 
+- [Deliv](https://novenopatch.github.io/docs/deliv/)
 - [Deliv — politique de confidentialité](https://novenopatch.github.io/docs/deliv/privacy/)

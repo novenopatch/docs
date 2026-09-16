@@ -177,6 +177,12 @@ const { title, project, updated, description } = Astro.props.frontmatter;
     text-underline-offset: 2px;
   }
 
+  .prose hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0 1.5rem;
+  }
+
   .footer {
     max-width: 720px;
     margin: 0 auto;
