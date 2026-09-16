@@ -49,3 +49,5 @@ Actions" dans les réglages du dépôt, pas sur une branche).
 
 - [Deliv](https://novenopatch.github.io/docs/deliv/)
 - [Deliv — politique de confidentialité](https://novenopatch.github.io/docs/deliv/privacy/)
+- [HotelPilot Suite](https://novenopatch.github.io/docs/hotelpilot/)
+- [HotelPilot Suite — politique de confidentialité](https://novenopatch.github.io/docs/hotelpilot/privacy/)
